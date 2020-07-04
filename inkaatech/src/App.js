@@ -28,12 +28,21 @@
 import React from "react";
 import "./App.css";
 import Button from "./components/atoms/Button";
+import TextField from "./components/atoms/TextField";
 
 function App() {
     return (
         <div className="App">
             <h1>Testing App Components</h1>
             <Button buttonStyle="btn--primary-square">Business</Button>
+            <TextField
+                // ref={inputRefs.current[0]}
+                name="username"
+                // label="Username*:"
+                // onChange={handleChange}
+                placeholder="First Name*"
+                validation={"required|min:6|max:12"}
+            />
         </div>
     );
 }
