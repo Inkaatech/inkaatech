@@ -11,6 +11,8 @@
     border: none;
     cursor: pointer;
     transition: tranform 0.3s ease;
+    width: 50%;
+    margin-top: 2rem;
 }
 
 .btn:hover {
@@ -37,7 +39,7 @@
 }
 
 .btn--medium {
-    padding: 10px 35px;
+    padding: 5px 15px;
     font-size: 30px;
 }
 

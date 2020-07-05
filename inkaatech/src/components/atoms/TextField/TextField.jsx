@@ -1,81 +1,60 @@
-import React, { forwardRef, useImperativeHandle } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./TextField.scss";
 
-const TextField = forwardRef((props, ref) => {
-    const [value, setValue] = React.useState("");
-    const [error, setError] = React.useState("");
+import { validateInput } from "../Validator/Validator";
+
+const TextField = ({ name, value, label, placeholder, validators, type, onChange }) => {
+    const [error, setError] = useState(false);
 
     const handleChange = (event) => {
-        setValue(event.target.value);
-        setError("");
-        props.onChange(event.target.name, event.target.value);
+        const { value } = event.target;
+        setError(validateInput(validators, value));
+        onChange(value);
     };
-
-    const validate = () => {
-        if (props.validation) {
-            const rules = props.validation.split("|");
-
-            for (let i = 0; i < rules.length; ++i) {
-                const current = rules[i];
-
-                if (current === "required") {
-                    if (!value) {
-                        setError("This field is required");
-                        return false;
-                    }
-                }
-
-                const pair = current.split(":");
-                switch (pair[0]) {
-                    case "min":
-                        if (value.length < pair[1]) {
-                            setError(`This field must be at least ${pair[1]} characters long`);
-                            return false;
-                        }
-                        break;
-                    case "max":
-                        if (value.length > pair[1]) {
-                            setError(`This field must be no longer than ${pair[1]} characters long`);
-                            return false;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-        return true;
-    };
-
-    useImperativeHandle(ref, () => {
-        return {
-            validate: () => validate(),
-        };
-    });
 
     return (
-        <div className="input-wrapper">
-            {props.label && <label>{props.label}</label>}
-            <input
-                placeholder={props.placeholder}
-                name={props.name}
-                onChange={(event) => handleChange(event)}
-                type={props.type}
-                value={props.value ? props.value : value}
-                autoComplete={props.autoComplete}
-            />
-            {error && <p className="error">{error}</p>}
+        <div className="text-field-content">
+            {type === "textarea" ? (
+                <textarea
+                    className="form-control"
+                    placeholder={placeholder}
+                    value={value}
+                    defaultValue={value}
+                    onChange={handleChange}
+                />
+            ) : (
+                <input
+                    name={name}
+                    type={type}
+                    value={value}
+                    className="form-control"
+                    placeholder={placeholder}
+                    onChange={handleChange}
+                />
+            )}
+            {error && <p className="error-message">{error.message}</p>}
         </div>
     );
-});
+};
+
+TextField.propTypes = {
+    name: PropTypes.string,
+    value: PropTypes.string,
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
+    validators: PropTypes.array,
+    type: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+};
 
 TextField.defaultProps = {
-    placeholder: "",
-    name: "",
-    type: "text",
+    name: "text",
     value: "",
-    autoComplete: "off",
-    validation: "", //example use of validation: "required|min:6|max:12"
+    label: "",
+    placeholder: "",
+    type: "text",
+    validators: [],
 };
 
 export default TextField;
