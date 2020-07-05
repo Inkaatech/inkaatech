@@ -11,6 +11,22 @@ input {
     margin-top: 15px;
 }
 
+input[type="submit"] {
+    font-family: $crimsonfont;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: tranform 0.3s ease;
+    width: 50%;
+    margin-top: 2rem;
+    background-image: linear-gradient(to right, #e85d04 0%, #e83144 51%, #e80486 100%);
+}
+
+input:hover[type="submit"] {
+    transform: translateY(-3px);
+    color: $darkblue;
+}
+
 input:focus {
     box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.1), inset -3px -3px 5px rgba(241, 255, 255, 0.5);
 }
