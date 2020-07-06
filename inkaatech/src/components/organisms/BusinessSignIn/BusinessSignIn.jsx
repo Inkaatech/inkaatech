@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TextField from "../../atoms/TextField";
 import Button from "../../atoms/Button";
 import { Validators } from "../../atoms/Validator/Validator";
+import history from "../../history";
 import "./BusinessSignIn.scss";
 
 export class BusinessSignIn extends Component {
@@ -38,7 +39,12 @@ export class BusinessSignIn extends Component {
                 <Button className="log-in-button" buttonStyle="btn--primary-square">
                     Log In
                 </Button>
-                <p className="no-account">Don't have an account? Sign Up</p>
+                <p className="no-account">Don't have an account?</p>
+                <form>
+                    <Button buttonStyle="btn-noformat" onClick={() => history.push("/BusinessReg")}>
+                        SignUp
+                    </Button>
+                </form>
             </div>
         );
     }

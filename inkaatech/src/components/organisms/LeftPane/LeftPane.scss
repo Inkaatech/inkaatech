@@ -1,1 +1,26 @@
 @import "../../main.scss";
+
+.leftPane-content {
+    background-image: linear-gradient(to bottom, #e85d04, #e80486);
+    width: 100%;
+    height: 100vh;
+    font-family: $crimsonfont;
+    .footer {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+    }
+
+    .legend {
+        color: white;
+        font-size: 20px;
+    }
+
+    .logo-area {
+        padding-top: 20px;
+        color: white;
+        h1 {
+            font-weight: 700;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Button.scss";
 
-const STYLES = ["btn--primary-round", "btn--social-round", "btn--primary-square", "btn--social-square"];
+const STYLES = ["btn--primary-round", "btn--social-round", "btn--primary-square", "btn--social-square", "btn-noformat"];
 
 const SIZES = ["btn--medium", "btn--large"];
 

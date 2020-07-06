@@ -21,8 +21,8 @@ export default class BusReg2 extends Component {
                     name="description"
                     placeholder="Description"
                     value={description}
-                    rows="25"
-                    cols="50"
+                    rows="10"
+                    cols="75"
                     onChange={handleChange("description")}
                 >
                     Description

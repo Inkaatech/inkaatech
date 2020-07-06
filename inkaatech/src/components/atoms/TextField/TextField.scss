@@ -7,7 +7,7 @@ input {
     font-family: $crimsonfont;
     outline: none;
     font-size: 1.5rem;
-    width: 50%;
+    width: 80%;
     margin-top: 15px;
 }
 
@@ -23,7 +23,7 @@ input[type="submit"] {
 }
 
 input:hover[type="submit"] {
-    transform: translateY(-3px);
+    // transform: translateY(-3px);
     color: $darkblue;
 }
 

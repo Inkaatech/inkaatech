@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-// import TextField from "../../atoms/TextField";
 import Button from "../../atoms/Button";
-// import { Validators } from "../../atoms/Validator/Validator";
+import history from "../../history";
+import "./BusReg1.scss";
 
 export default class BusReg1 extends Component {
     continue = (e) => {
@@ -25,6 +25,7 @@ export default class BusReg1 extends Component {
                         placeholder="First Name"
                         onChange={handleChange("firstName")}
                     />
+                    <br />
                     <input
                         required
                         type="text"
@@ -33,6 +34,7 @@ export default class BusReg1 extends Component {
                         placeholder="Last Name"
                         onChange={handleChange("lastName")}
                     />
+                    <br />
                     <input
                         required
                         type="text"
@@ -41,6 +43,7 @@ export default class BusReg1 extends Component {
                         placeholder="Company Name"
                         onChange={handleChange("companyName")}
                     />
+                    <br />
                     <input
                         required
                         type="email"
@@ -49,6 +52,7 @@ export default class BusReg1 extends Component {
                         placeholder="Email Address"
                         onChange={handleChange("email")}
                     />
+                    <br />
                     <input
                         required
                         type="text"
@@ -57,6 +61,7 @@ export default class BusReg1 extends Component {
                         placeholder="Type of Business"
                         onChange={handleChange("businessType")}
                     />
+                    <br />
                     <input
                         required
                         type="password"
@@ -65,12 +70,17 @@ export default class BusReg1 extends Component {
                         placeholder="Password"
                         onChange={handleChange("password")}
                     />
-                    <input type="submit" onClick={this.continue}></input>
+                    <br />
                 </form>
-                {/* <Button className="sign-up-button" buttonStyle="btn--primary-square" onClick={this.continue}>
+                <Button className="sign-up-button" buttonStyle="btn--primary-square" onClick={this.continue}>
                     Continue
-                </Button> */}
-                <p>Already have an account? Sign In</p>
+                </Button>
+                <p className="question-signup">Already have an account? </p>
+                <form>
+                    <Button buttonStyle="btn-noformat" onClick={() => history.push("/BusinessSignIn")}>
+                        Sign In
+                    </Button>
+                </form>
             </div>
         );
     }

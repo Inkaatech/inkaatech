@@ -16,7 +16,7 @@
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    // transform: translateY(-3px);
     color: $darkblue;
 }
 
@@ -36,6 +36,16 @@
 
 .btn--social-square {
     background-image: var(--social);
+}
+
+.btn-noformat {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    color: $darkblue;
+    text-decoration: underline;
 }
 
 .btn--medium {
