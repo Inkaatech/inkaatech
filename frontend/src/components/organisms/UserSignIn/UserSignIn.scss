@@ -1,0 +1,14 @@
+@import "../../main.scss";
+
+.BusinessSignIn-content {
+    text-align: center;
+    font-family: $crimsonfont;
+
+    .sign-in {
+        color: $darkblue;
+    }
+
+    .no-account {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,16 @@
+@import "../../main.scss";
+
+.BusReg1-content {
+    font-family: $crimsonfont;
+    color: $darkblue;
+    // height: 100vh;
+
+    .sign-up {
+        font-weight: 700;
+        margin: 2rem;
+    }
+
+    .question-signup {
+        font-size: 25px;
+    }
+}
